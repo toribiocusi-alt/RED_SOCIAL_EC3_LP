@@ -1,16 +1,23 @@
+
 #ifndef USUARIO_H
 #define USUARIO_H
 
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream> 
 
 using namespace std;
+
+// estructura PUBLICACION
 
 struct Publicacion {
     string contenido;
     string fecha;
 };
+
+
+
+// estructura USUARIO
 
 struct Usuario {
     string username;
@@ -19,7 +26,14 @@ struct Usuario {
     vector<string> amigos;
 };
 
+// funcion mostrar perfil
 void mostrarPerfil(const Usuario& u);
-void agregarPublicacion(Usuario& u, const string& texto);
 
-#endif#pragma once
+// funcion agregar publicacion
+
+void agregarPublicacion(
+    Usuario& u,
+    const string& texto
+);
+
+#endif

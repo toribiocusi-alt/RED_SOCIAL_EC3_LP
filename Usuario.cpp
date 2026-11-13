@@ -1,26 +1,47 @@
+
 #include "Usuario.h"
+
+#include <iostream>
+#include <string>
+using namespace std;
 
 void mostrarPerfil(const Usuario& u) {
     cout << "\n==============================\n";
-    cout << " PERFIL: " << u.username << "\n";
-    cout << " Amigos: " << u.amigos.size() << "\n";
-    cout << " Publicaciones: " << u.posts.size() << "\n";
+    cout << "       PERFIL DE USUARIO\n";
     cout << "==============================\n";
-    cout << "Ultimos Posts:\n";
+
+    cout << "Username: " << u.username << '\n';
+
+    cout << "\nPublicaciones:\n";
+
     if (u.posts.empty()) {
-        cout << "(No hay publicaciones aun)\n";
-    }
-    else {
-        for (int i = (int)u.posts.size() - 1; i >= 0; i--) {
-            cout << "- " << u.posts[i].contenido << " (" << u.posts[i].fecha << ")\n";
+        cout << "No hay publicaciones.\n";
+    } else {
+        for (const auto& post : u.posts) {
+            cout << "- " << post.contenido
+                      << " (" << post.fecha << ")\n";
         }
     }
-    cout << "------------------------------\n";
+
+    cout << "\nAmigos: " << u.amigos.size() << '\n';
+
+    for (const auto& amigo : u.amigos) {
+        cout << "- " << amigo << '\n';
+    }
+
+    cout << "==============================\n";
 }
 
-void agregarPublicacion(Usuario& u, const string& texto) {
-    Publicacion p;
-    p.contenido = texto;
-    p.fecha = "Hoy"; 
-    u.posts.push_back(p);
+void agregarPublicacion(
+    Usuario& u,
+    const string& texto
+) {
+    Publicacion nueva;
+
+    nueva.contenido = texto;
+    nueva.fecha = "Hoy";
+
+    u.posts.push_back(nueva);
+
+    cout << "¡Publicacion agregada correctamente!\n";
 }

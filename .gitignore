@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Ejecutable compilado de la red social
+/RedSocial
+
+# Configuración local de Visual Studio Code
+/.vscode/
